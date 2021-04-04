@@ -2,7 +2,8 @@ console.log("Hello world from game");
 
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
-const questionCounterText = document.getElementById("questionCounter");
+const progressText = document.getElementById("progress-text");
+const progressBarFull = document.getElementById("progress-bar-full");
 const scoreText = document.getElementById("score");
 
 let currentQuestion = {};
@@ -66,8 +67,11 @@ getNewQuestion = () => {
     question.innerText = currentQuestion.question;
 
     // seeting questioncounter for HUD
-    questionCounterText.innerHTML = `${questionCounter}/${questions.length}`
+    progressText.innerHTML = `Question: ${questionCounter}/${questions.length}`
 
+    // filling up the progress bar the questionar progreeses
+    progressBarFull.style.width = Math.floor((questionCounter/questions.length)*100)+'%';
+    
     choices.forEach(choice => {
         const number = choice.dataset['number'];
         choice.innerText = currentQuestion['choice'+number];
