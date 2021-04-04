@@ -50,6 +50,7 @@ h3 {
   align-items: center; /* center everything vertically by default */
   max-width: 80rem;
   margin: 0 auto; /* keeping all the things centered with in the app. */
+  padding: 2rem;
 }
 
 .container > * {
